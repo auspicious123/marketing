@@ -56,13 +56,12 @@ const cardData = [
 ];
 
 function generateCards() {
-  const outerCardContainer = document.querySelector(".outerCard");
+  const outerCardContainer = document.querySelector(".outerCard1");
 
   cardData.forEach((card) => {
     const cardElement = document.createElement("a");
     cardElement.className = "card bingo";
     cardElement.setAttribute("data-slug", card.slug);
-
 
     cardElement.innerHTML = `
             <img src="${card.imgSrc}" alt="${card.alt}" />
@@ -77,17 +76,23 @@ function generateCards() {
     }</div>
             </div>
         `;
-        cardElement.addEventListener("click", openPopUp);
-    outerCardContainer.appendChild(cardElement); 
+    cardElement.addEventListener("click", openPopUp);
+    outerCardContainer.appendChild(cardElement);
   });
 }
 
-
 document.addEventListener("DOMContentLoaded", generateCards);
 function openPopUp() {
-    document.getElementById('pop-up').style.display = 'flex';
+  document.getElementById("pop-up").style.display = "flex";
 }
+window.addEventListener("click", function (event) {
+  const popup = document.getElementById("pop-up");
+  const post = document.querySelector(".post"); // the popup content
+  if (event.target == popup && !post.contains(event.target)) {
+    closePopUp();
+  }
+});
 
 function closePopUp() {
-    document.getElementById('pop-up').style.display = 'none';
+  document.getElementById("pop-up").style.display = "none";
 }
