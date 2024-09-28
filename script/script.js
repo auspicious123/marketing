@@ -56,13 +56,13 @@ const cardData = [
 ];
 
 function generateCards() {
-  const outerCardContainer = document.querySelector(".outerCard"); // Make sure you have a container for the cards
+  const outerCardContainer = document.querySelector(".outerCard");
 
   cardData.forEach((card) => {
     const cardElement = document.createElement("a");
     cardElement.className = "card bingo";
     cardElement.setAttribute("data-slug", card.slug);
-    // cardElement.href = card.href;
+
 
     cardElement.innerHTML = `
             <img src="${card.imgSrc}" alt="${card.alt}" />
@@ -78,11 +78,11 @@ function generateCards() {
             </div>
         `;
         cardElement.addEventListener("click", openPopUp);
-    outerCardContainer.appendChild(cardElement); // Append the new card to the container
+    outerCardContainer.appendChild(cardElement); 
   });
 }
 
-// Call the function to generate the cards when the document is ready
+
 document.addEventListener("DOMContentLoaded", generateCards);
 function openPopUp() {
     document.getElementById('pop-up').style.display = 'flex';
