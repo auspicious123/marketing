@@ -5473,6 +5473,9 @@ h2.slab {
   .roast p {
     font-size: 1.5rem;
   }
+  .h-20 {
+    height: 0rem;
+  }
 }
 .roast p a {
   border-bottom: 1px solid;
@@ -5517,4 +5520,9 @@ h2.slab {
 }
 .h-20 {
   height: 8rem;
+}
+@media screen and (max-width: 880px) {
+  .h-20 {
+    height: 0rem;
+  }
 }
