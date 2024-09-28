@@ -1,7 +1,7 @@
 const cardData = [
   {
     slug: "zero-click",
-    href: "https://marketingexamples.com/social/zero-click",
+    href: "/social/zero-click",
     imgSrc: "./images/zc9.jpg",
     alt: "30 secs",
     title: "Same interview. 700x reach.",
@@ -10,7 +10,7 @@ const cardData = [
   },
   {
     slug: "ketones",
-    href: "https://marketingexamples.com/creative/ketones",
+    href: "/creative/ketones",
     imgSrc: "./images/ketones30.jpg",
     alt: "2 mins",
     title: "Posting seltzer. Making money.",
@@ -19,7 +19,7 @@ const cardData = [
   },
   {
     slug: "lera",
-    href: "https://marketingexamples.com/sales/lera",
+    href: "/sales/lera",
     imgSrc: "./images/lera.jpg",
     alt: "2 min",
     title: "The saleswoman closing 33% of cold pitches",
@@ -62,7 +62,7 @@ function generateCards() {
     const cardElement = document.createElement("a");
     cardElement.className = "card bingo";
     cardElement.setAttribute("data-slug", card.slug);
-    cardElement.href = card.href;
+    // cardElement.href = card.href;
 
     cardElement.innerHTML = `
             <img src="${card.imgSrc}" alt="${card.alt}" />
@@ -77,10 +77,17 @@ function generateCards() {
     }</div>
             </div>
         `;
-
+        cardElement.addEventListener("click", openPopUp);
     outerCardContainer.appendChild(cardElement); // Append the new card to the container
   });
 }
 
 // Call the function to generate the cards when the document is ready
 document.addEventListener("DOMContentLoaded", generateCards);
+function openPopUp() {
+    document.getElementById('pop-up').style.display = 'flex';
+}
+
+function closePopUp() {
+    document.getElementById('pop-up').style.display = 'none';
+}
